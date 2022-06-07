@@ -54,6 +54,32 @@ public class AppTest {
 	public void sumaParesLisRecur(){
 		assertEquals(6, App.sumaParesListRecur(lista));
 	}
+	@Test 
+	public void sumaParesNIter(){
+		List<Integer> list = new ArrayList<>();
+		list.add(4);
+		list.add(2);
+		assertEquals(list, App.paresHastaNIter(5));
+	}
+	@Test
+	public void paresHastaNRecur(){
+		List<Integer> list = new ArrayList<>();
+		list.add(4);
+		list.add(2);
+		assertEquals(list, App.paresHastaNRecur(5));
+	}
+	@Test 
+	public void productoEscalarIter(){
+		List<Integer> listaA = Arrays.asList(1,2,3);
+		List<Integer> listaB = Arrays.asList(2,4,6);
+		assertEquals(28, App.productoEscalarIter(listaA, listaB));
+	}
+	@Test 
+	public void productoEscalarRecur(){
+		List<Integer> listaA = Arrays.asList(1,2,3);
+		List<Integer> listaB = Arrays.asList(2,4,6);
+		assertEquals(28, App.productoEscalarRecur(listaA, listaB));
+	}	
 }
 
 

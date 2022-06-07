@@ -68,7 +68,41 @@ public class App{
 			}
 			return listaParesRecur(listaEntrada, listaSalida, i + 1);
 		}
-	}	 
+	}
+	public static List<Integer> paresHastaNIter(int n){
+		List<Integer> listaSalida = new ArrayList<>(); 
+		for(int i = n; i>=2; i--){
+			if(i % 2 == 0) 
+				listaSalida.add(i);
+		}
+		return listaSalida; 
+	}
+	public static List<Integer> paresHastaNRecur(int n){
+		return paresRecur(new ArrayList<Integer>(), n);
+	}
+	public static List<Integer> paresRecur(List<Integer> listaSalida, int i){
+		if(i < 2) return listaSalida;
+		else{
+			if(i % 2 == 0){
+				listaSalida.add(i);
+			}
+		}
+		return paresRecur(listaSalida, i - 1);
+	}
+	public static int productoEscalarIter(List<Integer> listaA, List<Integer> listaB){
+		int a = 0; 
+		int b = 0; 
+		int productoEscalar = 0; 
+		for(int i = 0; i < listaA.size(); i++){
+			productoEscalar = productoEscalar + (listaA.get(a) * listaB.get(b));
+			a++;
+			b++;
+		}
+		return productoEscalar;
+	}
+	public static int productoEscalarRecur(List<Integer> listaA, List<Integer> listaB){
+		return  (listaA.size() == 0)? 0 : listaA.get(0) * listaB.get(0) + productoEscalarRecur(listaA.subList(1, listaA.size()), listaB.subList(1, listaB.size()));    
+	}	
 }
 
 
