@@ -19,6 +19,7 @@ public class AppTest {
 	List<String> listaString2 = Arrays.asList("hola","mundo");
 	List<String> listaString3 = Arrays.asList("arbol","binario");
 	List<String> listaString4 = Arrays.asList("binario");
+	List<Integer> listaCambio = Arrays.asList(200,100,50,20,10,5,2,1);
 	@Test
 	public void sumaIter(){
 	        assertEquals(15, App.sumaIter(5));
@@ -122,6 +123,14 @@ public class AppTest {
 	@Test
 	public void mayoresQueSeis(){
 		assertEquals(lista6, App.mayoresQueSeis(lista)); 
+	}
+	@Test 
+	public void cambioSimulacroIter(){
+		assertEquals(7, Simulacro.cambio(875, listaCambio));
+	}
+	@Test 
+	public void cambioSimulacroRecur(){
+		assertEquals(7, Simulacro.cambioRecursivo(875, listaCambio));
 	}
 }
 
