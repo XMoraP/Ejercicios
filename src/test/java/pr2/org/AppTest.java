@@ -13,7 +13,12 @@ import org.junit.Test;
  */
 public class AppTest {
 	List<Integer> lista = Arrays.asList(1,2,3,4,5);
-
+	List<Integer> listPares = Arrays.asList(2,4);
+	List<Integer> lista6 = Arrays.asList(8,10);
+	List<String> listaString = Arrays.asList("HOLA","MUNDO");
+	List<String> listaString2 = Arrays.asList("hola","mundo");
+	List<String> listaString3 = Arrays.asList("arbol","binario");
+	List<String> listaString4 = Arrays.asList("binario");
 	@Test
 	public void sumaIter(){
 	        assertEquals(15, App.sumaIter(5));
@@ -79,8 +84,47 @@ public class AppTest {
 		List<Integer> listaA = Arrays.asList(1,2,3);
 		List<Integer> listaB = Arrays.asList(2,4,6);
 		assertEquals(28, App.productoEscalarRecur(listaA, listaB));
-	}	
+	}
+	@Test 
+	public void listaCuadrados(){
+		//List<Double> ListDou = Arrays.asList(1.0,4.0,9.0,16.0,25.0);
+		List<Integer> list = Arrays.asList(1,4,9,16,25);
+		assertEquals(list, App.listaCuadrados(lista));
+	}
+	@Test
+	public void sumaLista(){
+		assertEquals(15, App.sumaLista(lista));
+	}
+	@Test
+	public void sumaParesLista(){
+		assertEquals(6, App.sumaParesLista(lista));	
+	}
+	@Test
+	public void listaPares(){
+		assertEquals(listPares, App.listaPares(lista));
+	}
+	@Test
+	public void menorLista(){
+		assertEquals(1, App.menorLista(lista));
+	}
+	@Test
+	public void aMinusculas(){
+		assertEquals(listaString2, App.aMinusculas(listaString));
+	}
+	@Test 
+	public void concat(){
+		assertEquals("holamundo", App.concat(listaString2));
+	}
+	@Test 
+	public void sinA(){
+		assertEquals(listaString4, App.sinA(listaString3));
+	}
+	@Test
+	public void mayoresQueSeis(){
+		assertEquals(lista6, App.mayoresQueSeis(lista)); 
+	}
 }
+
 
 
 

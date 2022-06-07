@@ -1,6 +1,8 @@
 package pr2.org;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.lang.String;
 
 public class App{
 	public static int sumaIter(int n){
@@ -101,8 +103,43 @@ public class App{
 		return productoEscalar;
 	}
 	public static int productoEscalarRecur(List<Integer> listaA, List<Integer> listaB){
-		return  (listaA.size() == 0)? 0 : listaA.get(0) * listaB.get(0) + productoEscalarRecur(listaA.subList(1, listaA.size()), listaB.subList(1, listaB.size()));    
-	}	
+		return  (listaA.size() == 0)? 0 : listaA.get(0) 
+						* listaB.get(0) 
+						+ productoEscalarRecur(listaA.subList(1, listaA.size()), listaB.subList(1, listaB.size()));    
+	}
+	public static List<Integer> listaCuadrados(List<Integer> lista){
+		return lista.stream().map(x -> x * x).collect(Collectors.toList());	
+	}
+	public static int sumaLista(List<Integer> lista){
+		return lista.stream().reduce(0, (x,y) -> x + y);
+	}
+	public static int sumaParesLista(List<Integer> lista){
+		return lista.stream()
+				.filter(x -> x % 2 == 0)
+				.collect(Collectors.toList())
+				.stream().reduce(0, (x,y) -> x + y);
+	}
+	public static List<Integer> listaPares(List<Integer> lista){
+		return lista.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+	}
+	public static int menorLista(List<Integer> lista){
+		return lista.stream().min((x,y) -> x.compareTo(y)).get();
+	}
+	public static List<String> aMinusculas(List<String> lista){
+		return lista.stream().map( x -> x.toLowerCase()).collect(Collectors.toList());
+	}
+	public static String concat(List<String> lista){
+		return lista.stream().reduce("", (x,y) -> x.concat(y));
+	}
+	public static List<String> sinA(List<String> lista){
+		String a = "a";
+		return lista.stream()
+			.filter(x -> x.charAt(0) != a.charAt(0))
+			.collect(Collectors.toList());
+	}
+	public static List<Integer> mayoresQueSeis(List<Integer> lista){
+		return lista.stream().map(x -> x * 2).filter(x -> x > 6).collect(Collectors.toList()); 
+	}
 }
 
 
