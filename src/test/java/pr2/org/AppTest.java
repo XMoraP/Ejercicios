@@ -20,6 +20,8 @@ public class AppTest {
 	List<String> listaString3 = Arrays.asList("arbol","binario");
 	List<String> listaString4 = Arrays.asList("binario");
 	List<Integer> listaCambio = Arrays.asList(200,100,50,20,10,5,2,1);
+	Interseccion<Integer> inter = new Interseccion<Integer>();
+	List<Integer> listaInterseccion = Arrays.asList(2,4);
 	@Test
 	public void sumaIter(){
 	        assertEquals(15, App.sumaIter(5));
@@ -131,6 +133,14 @@ public class AppTest {
 	@Test 
 	public void cambioSimulacroRecur(){
 		assertEquals(7, Simulacro.cambioRecursivo(875, listaCambio));
+	}
+	@Test 
+	public void inteseccionIter(){
+		assertEquals(listaInterseccion, inter.calcularInterseccionIter(lista, listPares));
+	}
+	@Test 
+	public void interRecur(){
+		assertEquals(listaInterseccion, inter.calcularInterseccionRecur(lista, listPares));
 	}
 }
 
